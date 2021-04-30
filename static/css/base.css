@@ -1,0 +1,15 @@
+.sc_header_logo {
+    max-width: 20%; min-width: 300px;
+}
+
+.sc_footer {
+    text-align: center; margin-top: 2rem;
+}
+
+.sc_footer_info {
+    font-size: 0.7rem;
+}
+
+.sc_footer_logo {
+    margin-bottom: 2rem;
+}
