@@ -8,9 +8,31 @@
     <hr>
 
     <div class="text-muted" style="text-align: center;">
-        <span>회사소개</span>&emsp;
-        <span>프로젝트</span>&emsp;
-        <span>파트너</span>&emsp;
-        <span>문의</span>
+        <a class="text-decoration-none text-muted" href="">
+            <span>회사소개</span>
+        </a>
+        &emsp;
+        <a class="text-decoration-none text-muted" href="">
+            <span>프로젝트</span>
+        </a>
+        &emsp;
+        <a class="text-decoration-none text-muted" href="">
+            <span>파트너</span>
+        </a>
+        &emsp;
+        <a class="text-decoration-none text-muted" href="">
+            <span>문의</span>
+        </a>
+
+        {% if user.is_authenticated %}
+            &emsp;
+            <a class="text-decoration-none text-muted" href="">
+                <span>Create Project ({{ user.username }})</span>
+            </a>
+            &emsp;
+            <a class="text-decoration-none text-muted" href="{% url 'accountapp:logout' %}?next={{ requset.path }}">
+                <span>logout</span>
+            </a>
+        {% endif %}
     </div>
 </div>
