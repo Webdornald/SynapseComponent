@@ -6,7 +6,7 @@
         <div class="mb-4" style="text-align: center;">
             <h4>Quit</h4>
         </div>
-        <form action="{% url 'accountapp:delete' pk=user.pk %}" method="post">
+        <form action="{% url 'accountapp:delete' pk=target_user.pk %}" method="post">
             {% csrf_token %}
             <div style="text-align: center;">
               정말 탈퇴하시겠습니까?
