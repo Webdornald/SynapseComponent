@@ -39,8 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'indexapp',
+    'informationapp',
     'accountapp',
+    'bootstrap4',
 ]
 
 MIDDLEWARE = [
@@ -133,5 +134,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / '_media'
 
-LOGIN_REDIRECT_URL = reverse_lazy('indexapp:index')
-LOGOUT_REDIRECT_URL = reverse_lazy('indexapp:index')
+LOGIN_REDIRECT_URL = reverse_lazy('informationapp:index')
+LOGOUT_REDIRECT_URL = reverse_lazy('informationapp:index')

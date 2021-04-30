@@ -1,5 +1,5 @@
 .sc_header_logo {
-    max-width: 20%; min-width: 300px;
+    max-width: 15%; min-width: 250px;
 }
 
 .sc_footer {
@@ -7,7 +7,7 @@
 }
 
 .sc_footer_info {
-    font-size: 0.7rem;
+
 }
 
 .sc_footer_logo {

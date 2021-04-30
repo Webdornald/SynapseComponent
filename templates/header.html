@@ -1,8 +1,10 @@
 {% load static %}
 <div>
-    <div style="text-align: center;">
-        <img class="sc_header_logo" src="{% static 'images/Synapse-Component_Logo_650x300.png' %}"
-             alt="Synapse Component">
+    <div style="text-align: center; margin: 3rem auto;">
+        <a href="{% url 'informationapp:index' %}">
+            <img class="sc_header_logo" src="{% static 'images/Synapse-Component_Logo.png' %}"
+                 alt="Synapse Component">
+        </a>
     </div>
 
     <hr>
@@ -26,8 +28,14 @@
 
         {% if user.is_authenticated %}
             &emsp;
+            |
+            &emsp;
+            <a class="text-decoration-none text-muted" href="{% url 'accountapp:detail' pk=user.pk %}">
+                Profile
+            </a>
+            &emsp;
             <a class="text-decoration-none text-muted" href="">
-                <span>Create Project ({{ user.username }})</span>
+                <span>Create Project</span>
             </a>
             &emsp;
             <a class="text-decoration-none text-muted" href="{% url 'accountapp:logout' %}?next={{ requset.path }}">

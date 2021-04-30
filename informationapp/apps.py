@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class IndexappConfig(AppConfig):
+class InformationappConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'indexapp'
+    name = 'informationapp'
