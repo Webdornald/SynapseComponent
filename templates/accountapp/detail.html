@@ -3,12 +3,28 @@
 {% block content %}
 
     <div style="text-align: center; max-width: 500px; margin: 3rem auto;">
-        <p class="text-muted small">
-            {{ target_user.date_joined }}
-        </p>
-        <h2>
-            {{ target_user.username }}
-        </h2>
+
+        {% if target_user.profile %}
+            <img src="{{ target_user.profile.image.url }}" alt=""
+                 style="height: 10rem; width: 10rem; border-radius: 10rem; margin-bottom: 2rem;">
+            <h2>
+                {{ target_user.profile.nickname }}
+                {% if target_user == user %}
+                    <a href="{% url 'profileapp:update' pk=target_user.profile.pk %}">edit</a>
+                {% endif %}
+            </h2>
+            <p class="text-muted small">
+                등록: {{ target_user.date_joined }}
+            </p>
+        {% else %}
+            <a href="{% url 'profileapp:create' %}">
+                <h2>
+                    Create Profile
+                </h2>
+            </a>
+        {% endif %}
+
+    <h5 style="margin: 3rem 0;">{{ target_user.profile.message | linebreaks | default_if_none:'소개가 없습니다.' }}</h5>
 
         {% if target_user == user %}
             <a href="{% url 'accountapp:update' pk=user.pk %}">
