@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load bootstrap4 %}
+{% load accountapp_filter %}
 
 {% block content %}
 
@@ -12,9 +13,16 @@
             {% bootstrap_form form %}
             <br>
             <div style="text-align: center;">
-                <input class="btn btn-dark rounded-pill col-4 mt-3" type="submit">
+                <input class="btn btn-dark rounded-pill col-2 mt-3" type="submit" id="write">
             </div>
         </form>
     </div>
+
+{% endblock %}
+
+{% block script %}
+
+    {# summernote js #}
+    <script src="{% fresh_static 'javascript/summernote.js' %}"></script>
 
 {% endblock %}
