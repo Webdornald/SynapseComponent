@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div style="max-width: 500px; margin: 4rem auto;">
+        <div class="mb-4" style="text-align: center;">
+            <h4>Delete Project : {{ target_project.title }}</h4>
+        </div>
+        <form action="{% url 'projectapp:delete' pk=target_project.pk %}" method="post">
+            {% csrf_token %}
+            <div style="text-align: center;">
+              정말 삭제하시겠습니까?
+            </div>
+            <br>
+            <div style="text-align: center;">
+                <input class="btn btn-danger rounded-pill col-4 mt-3" type="submit" value="확인">
+            </div>
+        </form>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div style="text-align: center; max-width: 1000px; margin: 3rem auto;">
+        {# 프로필 영역 #}
+        {% if target_user.profile %}
+            {% if target_user.profile.image %}
+                <img src="{{ target_user.profile.image.url }}" alt="{{ target_user.profile.nickname }}"
+                     style="height: 10rem; width: 10rem; border-radius: 10rem; margin-bottom: 2rem;">
+            {% else %}
+                <img src="https://picsum.photos/id/{{ target_user.pk }}/300/300" alt="{{ target_user.profile.nickname }}"
+                     style="height: 10rem; width: 10rem; border-radius: 10rem; margin-bottom: 2rem;">
+            {% endif %}
+            <h2>
+                {{ target_user.profile.nickname }}
+                {% if target_user == user %}
+                    <a href="{% url 'profileapp:update' pk=target_user.profile.pk %}">edit</a>
+                {% endif %}
+            </h2>
+        {% else %}
+            {% if target_user == user %}
+                <a href="{% url 'profileapp:create' %}">
+                    <h2>
+                        프로필 생성
+                    </h2>
+                </a>
+            {% else %}
+                <h4>프로필을 등록하지 않았습니다</h4>
+            {% endif %}
+        {% endif %}
+        <p class="text-muted small" style="margin-bottom: 2rem;">
+            등록: {{ target_user.date_joined }}
+        </p>
+        <hr>
+
+        {# 코멘트 영역 #}
+        <h5 style="margin: 2rem 0;">{{ target_user.profile.message | linebreaks | default_if_none:'소개가 없습니다.' }}</h5>
+        {% if target_user == user %}
+            <a href="{% url 'accountapp:update' pk=user.pk %}">
+                <p>
+                    비밀번호 변경
+                </p>
+            </a>
+            <a href="{% url 'accountapp:delete' pk=user.pk %}">
+                <p>
+                    회원 탈퇴
+                </p>
+            </a>
+        {% endif %}
+
+        <br>
+        <br>
+        <strong>Project</strong>
+        <hr>
+    </div>
+
+{% endblock %}
