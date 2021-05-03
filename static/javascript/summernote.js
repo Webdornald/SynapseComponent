@@ -6,8 +6,3 @@ $("#write").on("click", function () {
     checkUnload = false;
     $("submit").submit();
 });
-
-$(document).ready(function () {
-    $("img").addClass("img-responsive");
-    $("img").css("max-width", "100 %");
-});

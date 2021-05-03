@@ -3,8 +3,8 @@
 {% block content %}
 
     <div class="container">
-        <div style="text-align: center; margin: 3rem auto;">
-            <h1 style="margin-bottom: 3rem;">
+        <div style="margin: 3rem auto;">
+            <h1 style="text-align: center; margin-bottom: 3rem;">
                 {{ target_project.title }}
             </h1>
 
@@ -13,17 +13,22 @@
             </p>
 
             {% if target_project.writer == user %}
-                <a href="{% url 'projectapp:update' pk=target_project.pk %}" class="btn btn-secondary rounded-pill">
-                    수정
-                </a>
-                <a href="{% url 'projectapp:delete' pk=target_project.pk %}" class="btn btn-danger rounded-pill">
-                    삭제
-                </a>
+                <div style="text-align: center;">
+                    <a href="{% url 'projectapp:update' pk=target_project.pk %}" class="btn btn-secondary rounded-pill">
+                        수정
+                    </a>
+                    <a href="{% url 'projectapp:delete' pk=target_project.pk %}" class="btn btn-danger rounded-pill">
+                        삭제
+                    </a>
+                </div>
+
             {% endif %}
 
             <br>
             <br>
-            <strong>프로젝트 참여자</strong>
+            <div style="text-align: center;">
+                <strong>프로젝트 구성원</strong>
+            </div>
             <hr>
         </div>
     </div>
