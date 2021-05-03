@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'bootstrap4',
     'profileapp',
     'projectapp',
+    'django_summernote',
 ]
 
 MIDDLEWARE = [
@@ -138,3 +139,11 @@ MEDIA_ROOT = BASE_DIR / '_media'
 
 LOGIN_REDIRECT_URL = reverse_lazy('informationapp:index')
 LOGOUT_REDIRECT_URL = reverse_lazy('informationapp:index')
+
+X_FRAME_OPTIONS = 'SAMEORIGIN'
+
+SUMMERNOTE_CONFIG = {
+    'summernote': {
+        'width': '100%',
+    }
+}

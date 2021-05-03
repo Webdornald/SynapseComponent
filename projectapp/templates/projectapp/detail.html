@@ -2,23 +2,25 @@
 
 {% block content %}
 
-    <div style="text-align: center; max-width: 1000px; margin: 3rem auto;">
-        <h1>
-            {{ target_project.title }}
-        </h1>
+    <div class="container">
+        <div style="text-align: center; margin: 3rem auto;">
+            <h1>
+                {{ target_project.title }}
+            </h1>
 
-        <p>
-            {{ target_project.content }}
-        </p>
+            <p>
+                {{ target_project.content | safe }}
+            </p>
 
-        {% if target_project.writer == user %}
-            <a href="{% url 'projectapp:update' pk=target_project.pk %}" class="btn btn-secondary rounded-pill">
-                수정
-            </a>
-            <a href="{% url 'projectapp:delete' pk=target_project.pk %}" class="btn btn-danger rounded-pill">
-                삭제
-            </a>
-        {% endif %}
+            {% if target_project.writer == user %}
+                <a href="{% url 'projectapp:update' pk=target_project.pk %}" class="btn btn-secondary rounded-pill">
+                    수정
+                </a>
+                <a href="{% url 'projectapp:delete' pk=target_project.pk %}" class="btn btn-danger rounded-pill">
+                    삭제
+                </a>
+            {% endif %}
+        </div>
     </div>
 
 {% endblock %}
