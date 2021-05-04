@@ -2,7 +2,7 @@
 
 {% block content %}
 
-    <div class="container" style="text-align: center; margin: 3rem auto;">
+    <div style="text-align: center; margin: 3rem auto 2rem auto; width: 1140px; max-width: 95%">
         {# 프로필 영역 #}
         {% if target_user.profile %}
             {% if target_user.profile.image %}
@@ -54,5 +54,7 @@
         <strong>Project</strong>
         <hr>
     </div>
-
+    <div>
+        {% include 'snippets/project_list.html' with project_list=object_list %}
+    </div>
 {% endblock %}

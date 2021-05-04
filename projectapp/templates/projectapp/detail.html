@@ -2,8 +2,8 @@
 
 {% block content %}
 
-    <div class="container">
-        <div style="margin: 3rem auto;">
+    <div style="width: 1140px; margin: 3rem auto 2rem auto; max-width: 95%">
+        <div>
             <h1 style="text-align: center; margin-bottom: 3rem;">
                 {{ target_project.title }}
             </h1>
@@ -31,6 +31,9 @@
             </div>
             <hr>
         </div>
+    </div>
+    <div>
+        {% include 'snippets/participant_list.html' with participant_list=object_list %}
     </div>
 
 {% endblock %}

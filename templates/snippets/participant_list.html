@@ -1,0 +1,48 @@
+{% load static %}
+{% load accountapp_filter %}
+
+<style>
+    .container {
+        padding: 0;
+        margin: 0 auto;
+    }
+
+    .container div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 1rem;
+    }
+
+    .container img {
+        width: 7rem;
+        height: 7rem;
+        object-fit: cover;
+        border-radius: 10rem;
+    }
+</style>
+
+{% if participant_list %}
+    <div class="container">
+        {% for participant in participant_list %}
+            <a href="{% url 'accountapp:detail' pk=participant.user.pk %}">
+                <div style="display: block; text-align: center; margin-left: 1rem; margin-right: 1rem;">
+                    <img src="{{ participant.user.profile.image.url }}" alt="">
+                    <h5 class="mt-2" style="font-size: 1rem;">
+                        {{ participant.user.profile.nickname }}
+                    </h5>
+                </div>
+            </a>
+        {% endfor %}
+    </div>
+{% else %}
+    <div class="text-center">
+        <h1>
+            참여자가 없습니다
+        </h1>
+    </div>
+{% endif %}
+
+{% include 'snippets/pagination.html' with page_obj=page_obj %}
+
+<script src="{% fresh_static 'javascript/magicgrid.js' %}"></script>

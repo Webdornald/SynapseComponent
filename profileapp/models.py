@@ -8,3 +8,6 @@ class Profile(models.Model):
     image = models.ImageField(upload_to='profile/images/%Y/%m/%d/', null=True, blank=True)
     nickname = models.CharField(max_length=20, unique=True)
     message = models.TextField(null=True, blank=True)
+
+    def __str__(self):
+        return self.nickname
