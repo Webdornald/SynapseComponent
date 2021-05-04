@@ -20,13 +20,31 @@
         object-fit: cover;
         border-radius: 10rem;
     }
+
+    .participant-list {
+        text-align: center;
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+
+    @media screen and (max-width: 500px) {
+        .container img {
+            width: 4.5rem;
+            height: 4.5rem;
+        }
+
+        .participant-list {
+            margin-left: 0.5rem;
+            margin-right: 0.5rem;
+        }
+    }
 </style>
 
 {% if participant_list %}
     <div class="container">
         {% for participant in participant_list %}
             <a href="{% url 'accountapp:detail' pk=participant.user.pk %}">
-                <div style="display: block; text-align: center; margin-left: 1rem; margin-right: 1rem;">
+                <div class="participant-list" style="display: block;">
                     <img src="{{ participant.user.profile.image.url }}" alt="">
                     <h5 class="mt-2" style="font-size: 1rem;">
                         {{ participant.user.profile.nickname }}

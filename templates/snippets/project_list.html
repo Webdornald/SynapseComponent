@@ -20,13 +20,31 @@
         object-fit: cover;
         border-radius: 1rem;
     }
+
+    .project-list {
+        text-align: center;
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+
+    @media screen and (max-width: 500px) {
+        .container img {
+            width: 4.5rem;
+            height: 4.5rem;
+        }
+
+        .project-list {
+            margin-left: 0.5rem;
+            margin-right: 0.5rem;
+        }
+    }
 </style>
 
 {% if project_list %}
     <div class="container">
         {% for project in project_list %}
             <a href="{% url 'projectapp:detail' pk=project.pk %}">
-                <div style="display: block; text-align: center; margin-left: 1rem; margin-right: 1rem;">
+                <div class="project-list" style="display: block;">
                     <img src="{{ project.image.url }}" alt="">
                     <h5 class="mt-2" style="font-size: 1rem;">
                         {{ project.title | truncatechars:8 }}
