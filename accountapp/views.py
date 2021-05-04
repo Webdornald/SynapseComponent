@@ -7,7 +7,7 @@ from django.shortcuts import render
 # Create your views here.
 from django.urls import reverse_lazy, reverse
 from django.utils.decorators import method_decorator
-from django.views.generic import CreateView, DetailView, UpdateView, DeleteView
+from django.views.generic import CreateView, DetailView, UpdateView, DeleteView, ListView
 
 from accountapp.decorators import account_ownership_required
 from accountapp.forms import AccountUpdateForm
@@ -46,3 +46,10 @@ class AccountDeleteView(DeleteView):
     context_object_name = 'target_user'
     success_url = reverse_lazy('informationapp:index')
     template_name = 'accountapp/delete.html'
+
+
+class AccountListView(ListView):
+    model = User
+    context_object_name = 'account_list'
+    template_name = 'accountapp/list.html'
+    paginate_by = 25
