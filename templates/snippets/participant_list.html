@@ -45,7 +45,11 @@
         {% for participant in participant_list %}
             <a href="{% url 'accountapp:detail' pk=participant.user.pk %}">
                 <div class="participant-list" style="display: block;">
-                    <img src="{{ participant.user.profile.image.url }}" alt="">
+                    {% if participant.user.profile.image %}
+                        <img src="{{ participant.user.profile.image.url }}" alt="">
+                    {% else %}
+                        <img src="https://picsum.photos/id/{{ participant.user.pk }}/300/300" alt="">
+                    {% endif %}
                     <h5 class="mt-2" style="font-size: 1rem;">
                         {{ participant.user.profile.nickname }}
                     </h5>

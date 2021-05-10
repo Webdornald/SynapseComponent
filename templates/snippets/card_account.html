@@ -1,5 +1,9 @@
 <div style="display: block; text-align: center; margin-left: 1rem; margin-right: 1rem;">
-    <img src="{{ account.profile.image.url }}" alt="">
+    {% if account.profile.image %}
+        <img src="{{ account.profile.image.url }}" alt="">
+    {% else %}
+        <img src="https://picsum.photos/id/{{ account.pk }}/300/300" alt="">
+    {% endif %}
     <h5 class="mt-2" style="font-size: 1rem;">
         {{ account.profile.nickname }}
     </h5>

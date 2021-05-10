@@ -28,9 +28,11 @@
     {% if account_list %}
         <div class="container" style="margin-top: 2rem;">
             {% for account in account_list %}
-                <a href="{% url 'accountapp:detail' pk=account.pk %}">
-                    {% include 'snippets/card_account.html' with account=account %}
-                </a>
+                {% if not account.is_superuser %}
+                    <a href="{% url 'accountapp:detail' pk=account.pk %}">
+                        {% include 'snippets/card_account.html' with account=account %}
+                    </a>
+                {% endif %}
             {% endfor %}
         </div>
     {% else %}
