@@ -35,8 +35,6 @@ class ProjectDetailView(DetailView, MultipleObjectMixin):
     context_object_name = 'target_project'
     template_name = 'projectapp/detail.html'
 
-    paginate_by = 25
-
     def get_context_data(self, **kwargs):
         object_list = self.object.participants.all()
         return super(ProjectDetailView, self).get_context_data(object_list=object_list)

@@ -23,6 +23,30 @@
             object-fit: cover;
             border-radius: 10rem;
         }
+
+        .container img {
+            width: 7rem;
+            height: 7rem;
+            object-fit: cover;
+            border-radius: 10rem;
+        }
+
+        .accounts-list {
+            margin-left: 1rem;
+            margin-right: 1rem;
+        }
+
+        @media screen and (max-width: 500px) {
+            .container img {
+                width: 4.5rem;
+                height: 4.5rem;
+            }
+
+            .accounts-list {
+                margin-left: 0.5rem;
+                margin-right: 0.5rem;
+            }
+        }
     </style>
 
     {% if account_list %}
@@ -30,7 +54,16 @@
             {% for account in account_list %}
                 {% if not account.is_superuser %}
                     <a href="{% url 'accountapp:detail' pk=account.pk %}">
-                        {% include 'snippets/card_account.html' with account=account %}
+                        <div class="accounts-list" style="display: block; text-align: center;">
+                            {% if account.profile.image %}
+                                <img src="{{ account.profile.image.url }}" alt="">
+                            {% else %}
+                                <img src="https://picsum.photos/id/{{ account.pk }}/300/300" alt="">
+                            {% endif %}
+                            <h5 class="mt-2" style="font-size: 1rem;">
+                                {{ account.profile.nickname }}
+                            </h5>
+                        </div>
                     </a>
                 {% endif %}
             {% endfor %}
@@ -42,8 +75,6 @@
             </h1>
         </div>
     {% endif %}
-
-    {% include 'snippets/pagination.html' with page_obj=page_obj %}
 
     <script src="{% fresh_static 'javascript/magicgrid.js' %}"></script>
 

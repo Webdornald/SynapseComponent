@@ -12,7 +12,7 @@ from django.views.generic.list import MultipleObjectMixin
 
 from accountapp.decorators import account_ownership_required
 from accountapp.forms import AccountUpdateForm
-
+from profileapp.models import Profile
 
 has_ownership = [account_ownership_required, login_required]
 
@@ -23,13 +23,16 @@ class AccountCreateView(CreateView):
     success_url = reverse_lazy('informationapp:index')
     template_name = 'accountapp/create.html'
 
+    def form_valid(self, form):
+        user = form.save()
+        Profile.objects.create(user=user)
+        return super().form_valid(form)
+
 
 class AccountDetailView(DetailView, MultipleObjectMixin):
     model = User
     context_object_name = 'target_user'
     template_name = 'accountapp/detail.html'
-
-    paginate_by = 25
 
     def get_context_data(self, **kwargs):
         object_list = self.object.profile.participants.all()
@@ -59,4 +62,3 @@ class AccountListView(ListView):
     model = User
     context_object_name = 'account_list'
     template_name = 'accountapp/list.html'
-    paginate_by = 25
