@@ -24,7 +24,7 @@ class AccountCreateView(CreateView):
     template_name = 'accountapp/create.html'
 
     def form_valid(self, form):
-        user = form.save()
+        user = form.save(commit=False)
         Profile.objects.create(user=user)
         return super().form_valid(form)
 
