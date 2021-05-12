@@ -145,7 +145,4 @@ migrations/
 
 # media
 _media/
-
-# database
-.env.prod
-.env.prod.db
+_static/
