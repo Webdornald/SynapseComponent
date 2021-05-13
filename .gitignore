@@ -146,5 +146,8 @@ migrations/
 # media
 _media/
 
+# static
+_static/
+
 # dockerfile
 Dockerfile
