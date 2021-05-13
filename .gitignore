@@ -145,3 +145,6 @@ migrations/
 
 # media
 _media/
+
+# dockerfile
+Dockerfile
