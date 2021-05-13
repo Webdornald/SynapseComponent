@@ -39,7 +39,7 @@
             </a>
             &emsp;
             <a class="text-decoration-none text-muted" href="{% url 'accountapp:logout' %}?next={{ requset.path }}">
-                <span>logout ({{ user.profile.nickname }})</span>
+                <span>logout{% if user.profile %} ({{ user.profile.nickname }}){% endif %}</span>
             </a>
         {% endif %}
     </div>
