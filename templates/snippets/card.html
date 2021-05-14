@@ -1,3 +1,26 @@
-<div>
-    <img src="{{ project.image.url }}" alt="{{ project.title }}">
+<style>
+    .img-description {
+        position: absolute;
+        color: #fff;
+        visibility: hidden;
+        opacity: 0;
+        transition: opacity .2s;
+        pointer-events: none;
+        text-align: center;
+    }
+
+    .hover-img:hover {
+        filter: brightness(30%);
+        transition: 0.2s;
+    }
+
+    .img-wrap:hover .img-description {
+        visibility: visible;
+        opacity: 1;
+    }
+</style>
+
+<div class="img-wrap">
+    <img class="hover-img" src="{{ project.image.url }}" alt="{{ project.title }}">
+    <p class="img-description" style="font-size: 1.2rem;"><strong style="font-size: 3rem;">{{ project.index }}</strong><br>{{ project.title }}</p>
 </div>
