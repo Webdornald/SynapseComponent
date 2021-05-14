@@ -8,7 +8,7 @@
         <div class="mb-4" style="text-align: center;">
             <h4>Change Content</h4>
         </div>
-        <form action="{% url 'projectapp:update' pk=target_project.pk %}" method="post">
+        <form action="{% url 'projectapp:update' pk=target_project.pk %}" method="post" enctype="multipart/form-data">
             {% csrf_token %}
             {% bootstrap_form form %}
             <br>
