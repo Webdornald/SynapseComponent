@@ -7,7 +7,7 @@ from projectapp.models import Project
 class ProjectCreationForm(ModelForm):
     class Meta:
         model = Project
-        fields = ['title', 'image', 'content', 'participants']
+        fields = ['index', 'title', 'image', 'content', 'participants']
         widgets = {
             'content': SummernoteWidget(),
         }
