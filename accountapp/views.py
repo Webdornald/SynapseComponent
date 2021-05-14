@@ -1,11 +1,8 @@
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-from django.http import HttpResponse, HttpResponseRedirect, HttpResponseForbidden
-from django.shortcuts import render
-
 # Create your views here.
-from django.urls import reverse_lazy, reverse
+from django.urls import reverse_lazy
 from django.utils.decorators import method_decorator
 from django.views.generic import CreateView, DetailView, UpdateView, DeleteView, ListView
 from django.views.generic.list import MultipleObjectMixin
@@ -23,10 +20,10 @@ class AccountCreateView(CreateView):
     success_url = reverse_lazy('informationapp:index')
     template_name = 'accountapp/create.html'
 
-    def form_valid(self, form):
-        user = form.save()
-        Profile.objects.create(user=user, nickname='default')
-        return super().form_valid(form)
+    # def form_valid(self, form):
+    #     user = form.save()
+    #     Profile.objects.create(user=user, nickname='default')
+    #     return super().form_valid(form)
 
 
 class AccountDetailView(DetailView, MultipleObjectMixin):
