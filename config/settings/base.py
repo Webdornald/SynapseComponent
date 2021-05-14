@@ -26,11 +26,11 @@ INSTALLED_APPS = [
     'django_summernote',
     'bootstrap4',
     # app
-    'informationapp',
-    'accountapp',
-    'profileapp',
-    'projectapp',
-    'contactapp',
+    'informationapp.apps.InformationappConfig',
+    'accountapp.apps.AccountappConfig',
+    'profileapp.apps.ProfileappConfig',
+    'projectapp.apps.ProjectappConfig',
+    'contactapp.apps.ContactappConfig',
 
 ]
 
