@@ -139,9 +139,6 @@ cython_debug/
 # pycharm
 .idea/
 
-# migration folder
-migrations/
-
 # media
 _media/
 
