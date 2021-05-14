@@ -147,3 +147,4 @@ _static/
 
 # dockerfile
 Dockerfile
+docker-compose.yml
