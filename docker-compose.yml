@@ -6,8 +6,8 @@ services:
       - network
     volumes:
       - /home/django_course/nginx.conf:/etc/nginx/nginx.conf
-      - static-volume:/data/static
-      - media-volume:/data/media
+      - static-volume:/data/_static
+      - media-volume:/data/_media
     ports:
       - 80:80
   django_container_gunicorn:
