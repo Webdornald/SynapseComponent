@@ -20,10 +20,10 @@ class AccountCreateView(CreateView):
     success_url = reverse_lazy('informationapp:index')
     template_name = 'accountapp/create.html'
 
-    # def form_valid(self, form):
-    #     user = form.save()
-    #     Profile.objects.create(user=user, nickname='default')
-    #     return super().form_valid(form)
+    def form_valid(self, form):
+        user = form.save()
+        Profile.objects.create(user=user, nickname='default')
+        return super().form_valid(form)
 
 
 class AccountDetailView(DetailView, MultipleObjectMixin):
