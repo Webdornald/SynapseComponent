@@ -7,10 +7,10 @@
         {% if target_user.profile %}
             {% if target_user.profile.image %}
                 <img src="{{ target_user.profile.image.url }}" alt="{{ target_user.profile.nickname }}"
-                     style="height: 10rem; width: 10rem; border-radius: 10rem; margin-bottom: 2rem;">
+                     style="height: 10rem; width: 10rem; border-radius: 10rem; margin-bottom: 2rem; object-fit: cover;">
             {% else %}
                 <img src="https://picsum.photos/id/{{ target_user.pk }}/300/300" alt="{{ target_user.profile.nickname }}"
-                     style="height: 10rem; width: 10rem; border-radius: 10rem; margin-bottom: 2rem;">
+                     style="height: 10rem; width: 10rem; border-radius: 10rem; margin-bottom: 2rem; object-fit: cover;">
             {% endif %}
             <h2>
                 {{ target_user.profile.nickname }}

@@ -27,6 +27,26 @@
         margin-right: 1rem;
     }
 
+    .container img:hover {
+        filter: brightness(30%);
+        transition: 0.2s;
+    }
+
+    .img-description {
+        position: absolute;
+        color: #fff;
+        visibility: hidden;
+        opacity: 0;
+        transition: opacity .2s;
+        pointer-events: none;
+        text-align: center;
+    }
+
+    .img-wrap:hover .img-description {
+        visibility: visible;
+        opacity: 1;
+    }
+
     @media screen and (max-width: 500px) {
         .container img {
             width: 4.5rem;
@@ -45,11 +65,14 @@
         {% for participant in participant_list %}
             <a href="{% url 'accountapp:detail' pk=participant.user.pk %}">
                 <div class="participant-list" style="display: block;">
-                    {% if participant.user.profile.image %}
-                        <img src="{{ participant.user.profile.image.url }}" alt="">
-                    {% else %}
-                        <img src="https://picsum.photos/id/{{ participant.user.pk }}/300/300" alt="">
-                    {% endif %}
+                    <div class="img-wrap">
+                        {% if participant.user.profile.image %}
+                            <img src="{{ participant.user.profile.image.url }}" alt="">
+                        {% else %}
+                            <img src="https://picsum.photos/id/{{ participant.user.pk }}/300/300" alt="">
+                        {% endif %}
+                        <p class="img-description mt-2" style="font-size: 1.5rem"><strong>view</strong></p>
+                    </div>
                     <h5 class="mt-2" style="font-size: 1rem;">
                         {{ participant.user.profile.nickname }}
                     </h5>

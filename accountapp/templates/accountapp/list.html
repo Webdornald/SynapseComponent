@@ -24,11 +24,24 @@
             border-radius: 10rem;
         }
 
-        .container img {
-            width: 7rem;
-            height: 7rem;
-            object-fit: cover;
-            border-radius: 10rem;
+        .container img:hover {
+            filter: brightness(30%);
+            transition: 0.2s;
+        }
+
+        .img-description {
+            position: absolute;
+            color: #fff;
+            visibility: hidden;
+            opacity: 0;
+            transition: opacity .2s;
+            pointer-events: none;
+            text-align: center;
+        }
+
+        .img-wrap:hover .img-description {
+            visibility: visible;
+            opacity: 1;
         }
 
         .accounts-list {
@@ -55,11 +68,14 @@
                 {% if not account.is_superuser %}
                     <a href="{% url 'accountapp:detail' pk=account.pk %}">
                         <div class="accounts-list" style="display: block; text-align: center;">
-                            {% if account.profile.image %}
-                                <img src="{{ account.profile.image.url }}" alt="">
-                            {% else %}
-                                <img src="https://picsum.photos/id/{{ account.pk }}/300/300" alt="">
-                            {% endif %}
+                            <div class="img-wrap">
+                                {% if account.profile.image %}
+                                    <img src="{{ account.profile.image.url }}" alt="">
+                                {% else %}
+                                    <img src="https://picsum.photos/id/{{ account.pk }}/300/300" alt="">
+                                {% endif %}
+                                <p class="img-description mt-2" style="font-size: 1.5rem"><strong>view</strong></p>
+                            </div>
                             <h5 class="mt-2" style="font-size: 1rem;">
                                 {{ account.profile.nickname }}
                             </h5>

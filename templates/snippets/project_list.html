@@ -27,6 +27,26 @@
         margin-right: 1rem;
     }
 
+    .container img:hover {
+        filter: brightness(30%);
+        transition: 0.2s;
+    }
+
+    .img-description {
+        position: absolute;
+        color: #fff;
+        visibility: hidden;
+        opacity: 0;
+        transition: opacity .2s;
+        pointer-events: none;
+        text-align: center;
+    }
+
+    .img-wrap:hover .img-description {
+        visibility: visible;
+        opacity: 1;
+    }
+
     @media screen and (max-width: 500px) {
         .container img {
             width: 4.5rem;
@@ -45,7 +65,10 @@
         {% for project in project_list %}
             <a href="{% url 'projectapp:detail' pk=project.pk %}">
                 <div class="project-list" style="display: block;">
-                    <img src="{{ project.image.url }}" alt="">
+                    <div class="img-wrap">
+                        <img src="{{ project.image.url }}" alt="">
+                        <p class="img-description mt-2" style="font-size: 1.5rem"><strong>view</strong></p>
+                    </div>
                     <h5 class="mt-2" style="font-size: 1rem;">
                         {{ project.title | truncatechars:8 }}
                     </h5>
