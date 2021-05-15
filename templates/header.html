@@ -1,4 +1,10 @@
 {% load static %}
+<style>
+    a span:hover {
+        color: #000000;
+    }
+</style>
+
 <div>
     <div style="text-align: center; margin: 3rem auto;">
         <a href="{% url 'informationapp:index' %}">
@@ -31,7 +37,7 @@
             |
             &emsp;
             <a class="text-decoration-none text-muted" href="{% url 'accountapp:detail' pk=user.pk %}">
-                Profile
+                <span>Profile</span>
             </a>
             &emsp;
             <a class="text-decoration-none text-muted" href="{% url 'projectapp:create' %}">

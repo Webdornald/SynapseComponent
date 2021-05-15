@@ -1,11 +1,114 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
 
+    <style>
+        section {
+            display: flex;
+            justify-content: space-between;
+            padding-top: 5%;
+            padding-bottom: 5%;
+        }
+
+        section div {
+            background-color: #f5dd5d;
+            height: 300px;
+        }
+
+        /* Scroll Animation (sa, 스크롤 애니메이션) */
+        .sa {
+            opacity: 0;
+            transition: all .5s ease;
+        }
+
+        /* 아래에서 위로 페이드 인 */
+        .sa-up {
+            transform: translate(0, 100px);
+        }
+
+        /* 왼쪽에서 오른쪽으로 페이드 인 */
+        .sa-right {
+            transform: translate(-100px, 0);
+        }
+
+        /* 오른쪽에서 왼쪽으로 페이드 인 */
+        .sa-left {
+            transform: translate(100px, 0);
+        }
+
+        .sa.show {
+            opacity: 1;
+            transform: none;
+        }
+
+        p {
+            font-size: 1.2rem;
+        }
+
+        @media screen and (max-width: 500px) {
+            div.container {
+                margin-left: 0;
+                margin-right: 0;
+                padding-left: 0;
+                padding-right: 0;
+            }
+        }
+    </style>
+
     <div class="container">
-        <div style="height: 100rem; background-color: white; border-radius: 1rem; margin: 2rem;">
-            <h1>회사소개 페이지입니다.</h1>
+        <div>
+            <section>
+                <div class="sa sa-up col-12" data-sa-margin="0">
+                    <img style="max-width: 100%" src="{% static 'images/Synapse-Component_Logo.png' %}" alt="">
+                    <p>설명이 들어갑니다</p>
+                </div>
+            </section>
+            <section>
+                <div class="sa sa-right col-12">
+                    <img style="max-width: 100%" src="{% static 'images/Synapse-Component_Logo.png' %}" alt="">
+                    <p>설명이 들어갑니다</p>
+                </div>
+            </section>
+            <section>
+                <div class="sa sa-left col-12">
+                    <img style="max-width: 100%" src="{% static 'images/Synapse-Component_Logo.png' %}" alt="">
+                    <p>설명이 들어갑니다</p>
+                </div>
+            </section>
         </div>
     </div>
+
+    <script>
+        const saDefaultMargin = 300;
+        let saTriggerMargin = 0;
+        let saTriggerHeight = 0;
+        const saElementList = document.querySelectorAll('.sa');
+
+        const saFunc = function () {
+            for (const element of saElementList) {
+                if (!element.classList.contains('show')) {
+                    if (element.dataset.saMargin) {
+                        saTriggerMargin = parseInt(element.dataset.saMargin);
+                    } else {
+                        saTriggerMargin = saDefaultMargin;
+                    }
+
+                    if (element.dataset.saTrigger) {
+                        saTriggerHeight = document.querySelector(element.dataset.saTrigger).getBoundingClientRect().top + saTriggerMargin;
+                    } else {
+                        saTriggerHeight = element.getBoundingClientRect().top + saTriggerMargin;
+                    }
+
+                    if (window.innerHeight > saTriggerHeight) {
+                        element.classList.add('show');
+                    }
+                }
+            }
+        }
+
+        window.addEventListener('load', saFunc);
+        window.addEventListener('scroll', saFunc);
+    </script>
 
 {% endblock %}
