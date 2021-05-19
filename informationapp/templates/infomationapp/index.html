@@ -9,6 +9,7 @@
             justify-content: space-between;
             padding-top: 5%;
             padding-bottom: 5%;
+            margin-bottom: 200px;
         }
 
         section div {
@@ -46,12 +47,26 @@
             font-size: 1.2rem;
         }
 
+        .container {
+            margin-top: 100px;
+            margin-bottom: 200px;
+        }
+
         @media screen and (max-width: 500px) {
+            .container {
+                margin-top: 0;
+                margin-bottom: 0;
+            }
+
             div.container {
                 margin-left: 0;
                 margin-right: 0;
                 padding-left: 0;
                 padding-right: 0;
+            }
+
+            section {
+                margin-bottom: 100px;
             }
         }
     </style>
@@ -70,7 +85,7 @@
                     <p>설명이 들어갑니다</p>
                 </div>
             </section>
-            <section>
+            <section style="margin-bottom: 0">
                 <div class="sa sa-left col-12">
                     <img style="max-width: 100%" src="{% static 'images/Synapse-Component_Logo.png' %}" alt="">
                     <p>설명이 들어갑니다</p>
