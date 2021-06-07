@@ -32,8 +32,9 @@ class AccountDetailView(DetailView, MultipleObjectMixin):
     template_name = 'accountapp/detail.html'
 
     def get_context_data(self, **kwargs):
+        role_list = self.object.profile.role_tag.all()
         object_list = self.object.profile.participants.all()
-        return super(AccountDetailView, self).get_context_data(object_list=object_list)
+        return super(AccountDetailView, self).get_context_data(object_list=object_list, role_list=role_list)
 
 
 @method_decorator(has_ownership, 'get')

@@ -78,6 +78,11 @@
                             </div>
                             <h5 class="mt-2" style="font-size: 1rem;">
                                 {{ account.profile.nickname }}
+                                <div class="text-muted my-1" style="font-size: 0.9rem;">
+                                    {% for role in account.profile.role_tag.all %}
+                                        {{ role }}{% if not forloop.last %}, {% endif %}
+                                    {% endfor %}
+                                </div>
                             </h5>
                         </div>
                     </a>

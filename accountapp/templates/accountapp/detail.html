@@ -9,7 +9,8 @@
                 <img src="{{ target_user.profile.image.url }}" alt="{{ target_user.profile.nickname }}"
                      style="height: 10rem; width: 10rem; border-radius: 10rem; margin-bottom: 2rem; object-fit: cover;">
             {% else %}
-                <img src="https://picsum.photos/id/{{ target_user.pk }}/300/300" alt="{{ target_user.profile.nickname }}"
+                <img src="https://picsum.photos/id/{{ target_user.pk }}/300/300"
+                     alt="{{ target_user.profile.nickname }}"
                      style="height: 10rem; width: 10rem; border-radius: 10rem; margin-bottom: 2rem; object-fit: cover;">
             {% endif %}
             <h2>
@@ -17,6 +18,12 @@
                 {% if target_user == user %}
                     <a href="{% url 'profileapp:update' pk=target_user.profile.pk %}">edit</a>
                 {% endif %}
+                <div class="text-muted my-3" style="font-size: 1.2rem;">
+                    {% for role in role_list %}
+                        {{ role }}{% if not forloop.last %}, {% endif %}
+                    {% endfor %}
+                </div>
+
             </h2>
         {% else %}
             {% if target_user == user %}

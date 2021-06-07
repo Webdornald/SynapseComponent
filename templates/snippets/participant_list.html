@@ -76,6 +76,11 @@
                     <h5 class="mt-2" style="font-size: 1rem;">
                         {{ participant.user.profile.nickname }}
                     </h5>
+                    <div class="text-muted my-1" style="font-size: 0.9rem;">
+                        {% for role in participant.user.profile.role_tag.all %}
+                            {{ role }}{% if not forloop.last %}, {% endif %}
+                        {% endfor %}
+                    </div>
                 </div>
             </a>
         {% endfor %}
