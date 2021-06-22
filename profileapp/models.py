@@ -16,7 +16,7 @@ class Profile(models.Model):
     nickname = models.CharField(max_length=20)
     message = models.TextField(null=True, blank=True)
     participation = models.BooleanField(default=False)
-    role_tag = models.ManyToManyField(RoleTag, related_name='roletag', null=True, blank=True)
+    role_tag = models.ManyToManyField(RoleTag, related_name='roletag', blank=True)
 
     def __str__(self):
         return self.nickname
