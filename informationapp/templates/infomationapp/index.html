@@ -9,11 +9,7 @@
             justify-content: space-between;
             padding-top: 5%;
             padding-bottom: 5%;
-            margin-bottom: 200px;
-        }
-
-        section div {
-            height: 300px;
+            margin-bottom: 100px;
         }
 
         /* Scroll Animation (sa, 스크롤 애니메이션) */
@@ -48,7 +44,33 @@
 
         .container {
             margin-top: 100px;
-            margin-bottom: 200px;
+        }
+
+        .section_image_01 {
+            width: 13rem;
+            height: 13rem;
+        }
+
+        .section_image_02 {
+            width: 15rem;
+            height: 15rem;
+        }
+
+        .section_image_03 {
+            width: 15rem;
+            height: 15rem;
+        }
+
+        .section_01 {
+
+        }
+
+        .section_02 {
+
+        }
+
+        .section_03 {
+
         }
 
         @media screen and (max-width: 500px) {
@@ -65,33 +87,54 @@
             }
 
             section {
-                margin-top: 0px;
-                margin-bottom: 0px;
+                margin-top: 0;
+                margin-bottom: 0;
+            }
+
+            .section_image_01 {
+                width: 7rem;
+                height: 7rem;
+            }
+
+            .section_image_02 {
+                width: 8rem;
+                height: 8rem;
+            }
+
+            .section_image_03 {
+                width: 8rem;
+                height: 8rem;
             }
         }
     </style>
 
     <div class="container">
         <div>
-            <section>
+            <section class="section_01">
                 <div class="sa sa-up col-12" data-sa-margin="0" style="text-align: center;">
-                    <img style="max-width: 100%; margin: auto;" src="{% static 'images/introduction_01.png' %}" alt="">
-                    <p style="text-align: center; font-size: 1.3rem;"><strong>"시냅스 컴포넌트는 연결합니다."</strong></p>
-                        <p>팀원들 각자의 개성을 살려 최고의 성과를 이뤄냅니다.</p>
+                    <img class="section_image_01" style="max-width: 100%; margin: auto;"
+                         src="{% static 'images/Angel_logo_1024x1024.png' %}" alt="">
+                    <p style="margin-top: 30px; text-align: center; font-size: 1.3rem;">
+                        <strong>"일상의 필요를 프로그래밍으로 해결합니다."</strong></p>
+                    <p>당신 주위의 모든 문제가 시냅스 컴포넌트에게는 해결해야 할 과제입니다.</p>
                 </div>
             </section>
-            <section>
+            <section class="section_02">
                 <div class="sa sa-right col-12" style="text-align: center;">
-                    <img style="max-width: 100%; margin: auto;" src="{% static 'images/introduction_02.png' %}" alt="">
-                    <p style="text-align: center; font-size: 1.3rem;"><strong>"시냅스 컴포넌트는 연구합니다."</strong></p>
-                        <p>더 나은 콘텐츠를 발굴하기 위해 항상 주의를 기울입니다.</p>
+                    <img class="section_image_02" style="max-width: 100%; margin: auto;"
+                         src="{% static 'images/introduction_01.png' %}" alt="">
+                    <p style="margin-top: 30px; text-align: center; font-size: 1.3rem;">
+                        <strong>"끊임없이 프로젝트를 기획하고 개발합니다."</strong></p>
+                    <p>다양한 팀원들과 호흡을 맞춰 프로젝트를 완성해나갑니다.</p>
                 </div>
             </section>
-            <section style="margin-bottom: 0">
+            <section class="section_03">
                 <div class="sa sa-left col-12" style="text-align: center;">
-                    <img style="max-width: 100%; margin: auto;" src="{% static 'images/introduction_03.png' %}" alt="">
-                    <p style="text-align: center; font-size: 1.3rem;"><strong>"시냅스 컴포넌트는 유쾌합니다."</strong></p>
-                        <p>실패하더라도 뭐, 어쩔 수 없는 거잖아요?</p>
+                    <img class="section_image_03" style="max-width: 100%; margin: auto;"
+                         src="{% static 'images/introduction_02.png' %}" alt="">
+                    <p style="margin-top: 30px; text-align: center; font-size: 1.3rem;">
+                        <strong>"창의력을 마음껏 발휘합니다."</strong></p>
+                    <p>기존의 틀에 얽매이지 않고 문제를 해결해 나갑니다.</p>
                 </div>
             </section>
         </div>
