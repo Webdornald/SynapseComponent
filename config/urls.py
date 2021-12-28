@@ -18,8 +18,10 @@ from django.contrib import admin
 from django.urls import path, include
 
 from django.conf import settings
+from django.views.generic import TemplateView
 
 urlpatterns = [
+    path('ads.txt/', TemplateView.as_view(template_name='ads.txt', content_type='text/plain')),
     path('configadmin/', admin.site.urls),
     path('', include('informationapp.urls')),
     path('accounts/', include('accountapp.urls')),
