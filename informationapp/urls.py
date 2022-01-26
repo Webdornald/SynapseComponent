@@ -5,5 +5,6 @@ app_name = 'informationapp'
 
 urlpatterns = [
     path('', views.index, name='index'),
-    path('privacypolicy/', views.privacypolicy, name='privacypolicy')
+    path('privacypolicy/', views.privacypolicy, name='privacypolicy'),
+    path('termsofuse/', views.termsofuse, name='termsofuse'),
 ]

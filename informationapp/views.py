@@ -14,3 +14,7 @@ def index(request):
 
 def privacypolicy(request):
     return render(request, 'infomationapp/privacy_policy.html')
+
+
+def termsofuse(request):
+    return render(request, 'infomationapp/terms_of_use.html')
